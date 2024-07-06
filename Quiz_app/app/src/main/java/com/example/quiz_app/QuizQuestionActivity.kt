@@ -96,7 +96,6 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
         tvOptionFour?.text = question.optionFour
         tvName?.text = username
 
-
     }
 
     override fun onClick(v: View?) {
