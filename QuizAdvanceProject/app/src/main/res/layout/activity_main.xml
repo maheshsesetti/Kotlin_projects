@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/main_bg_color"
+    tools:context=".ui.theme.MainActivity">
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_marginTop="32dp"
+       android:layout_marginStart="24dp"
+       android:layout_marginEnd="24dp"
+       android:orientation="horizontal">
+       <ImageView
+           android:id="@+id/iv_profile"
+           android:layout_width="75dp"
+           android:layout_height="75dp"
+           android:src="@drawable/profile">
+       </ImageView>
+       <TextView
+           android:id="@+id/tv_profile_name"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content"
+           android:layout_marginStart="10dp"
+           android:text="Hi, Mahesh Babu"
+           android:layout_weight="1"
+           android:textStyle="bold"
+           android:textSize="20sp"
+           android:textColor="@color/white"
+           android:layout_gravity="center_vertical"
+           android:ellipsize="start"
+           >
+       </TextView>
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:background="@drawable/navy_background"
+           android:layout_marginTop="18dp"
+           android:padding="10dp"
+           android:gravity="center"
+           android:orientation="horizontal">
+           <ImageView
+               android:layout_width="25dp"
+               android:layout_height="25dp"
+               android:layout_marginEnd="5dp"
+               android:src="@drawable/garnet">
+           </ImageView>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="2000 +"
+               android:textColor="@color/white"
+               android:textStyle="bold">
+           </TextView>
+      </LinearLayout>
+
+</LinearLayout>
+
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:orientation="horizontal"
+       android:gravity="center"
+       android:layout_margin="10dp"
+       >
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="150dp"
+           android:gravity="center"
+           android:background="@drawable/navy_background"
+           android:layout_margin="10dp"
+           android:padding="10dp"
+           android:orientation="vertical">
+           <ImageView
+               android:layout_width="wrap_content"
+               android:layout_height="80dp"
+               android:src="@drawable/btn1">
+
+           </ImageView>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Create Quiz"
+               android:textSize="16sp"
+               android:textColor="@color/white"
+               android:textStyle="bold">
+
+           </TextView>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="150dp"
+           android:gravity="center"
+           android:background="@drawable/navy_background"
+           android:layout_margin="10dp"
+           android:padding="10dp"
+           android:orientation="vertical">
+           <ImageView
+               android:id="@+id/iv_single_player"
+               android:layout_width="wrap_content"
+               android:layout_height="80dp"
+               android:src="@drawable/btn2">
+
+           </ImageView>
+           <TextView
+               android:id="@+id/tv_single_player"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Single Player"
+               android:textSize="16sp"
+               android:textColor="@color/white"
+               android:textStyle="bold">
+
+           </TextView>
+
+       </LinearLayout>
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="150dp"
+           android:gravity="center"
+           android:background="@drawable/navy_background"
+           android:layout_margin="10dp"
+           android:padding="10dp"
+           android:orientation="vertical">
+           <ImageView
+               android:id="@+id/iv_multiplayer"
+               android:layout_width="wrap_content"
+               android:layout_height="80dp"
+               android:src="@drawable/btn3">
+
+           </ImageView>
+           <TextView
+               android:id="@+id/tv_multiplayer"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:text="Multi Player"
+               android:textSize="16sp"
+               android:textColor="@color/white"
+               android:textStyle="bold">
+
+           </TextView>
+
+       </LinearLayout>
+
+   </LinearLayout>
+
+</LinearLayout>
