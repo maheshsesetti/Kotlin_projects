@@ -1,6 +1,7 @@
 package com.example.quiz_app
 
 
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.Typeface
 import android.os.Bundle
@@ -10,16 +11,14 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.annotation.ContentView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
 
 class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
 
-    private lateinit var sharedPreferenceManager: SharedPreferenceManager
+
 
     private var mCurrentPosition :Int = 1
 
@@ -37,6 +36,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
     private var tvOptionThree:TextView? = null
     private var tvOptionFour:TextView? = null
     private var tvName:TextView? = null
+    private  var mCorrectAnswers: Int= 0
     private var btnSubmit: Button? = null
 
 
@@ -45,7 +45,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        sharedPreferenceManager = SharedPreferenceManager(this)
+
         setContentView(R.layout.activity_quiz_question)
 
         progressBar=findViewById(R.id.progressBar)
@@ -84,7 +84,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
             btnSubmit?.text = "SUBMIT"
         }
 
-        val username = sharedPreferenceManager.getString("username")
+
 
         progressBar?.progress = mCurrentPosition
         tvProgress?.text = "$mCurrentPosition/${progressBar?.max}"
@@ -94,7 +94,7 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
         tvOptionTwo?.text = question.optionTwo
         tvOptionThree?.text = question.optionThree
         tvOptionFour?.text = question.optionFour
-        tvName?.text = username
+        tvName?.text = intent.getStringExtra(Constant.USER_NAME)
 
     }
 
@@ -132,7 +132,13 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
                             mCurrentPosition <= mQuestionList!!.size -> {
                                 setQuestion()
                             } else -> {
-                                Toast.makeText(this@QuizQuestionActivity,"You made it to the end",Toast.LENGTH_LONG)
+                               // Toast.makeText(this@QuizQuestionActivity,"You made it to the end",Toast.LENGTH_LONG).show()
+                                val  intent = Intent(this,ResultActivity::class.java)
+                            intent.putExtra(Constant.USER_NAME,tvName?.text.toString())
+                            intent.putExtra(Constant.CORRECT_ANSWERS,mCorrectAnswers)
+                            intent.putExtra(Constant.TOTAL_QUESTIONS,mQuestionList!!.size)
+                            startActivity(intent)
+                            finish()
                             }
                         }
                     } else  {
@@ -140,6 +146,8 @@ class QuizQuestionActivity : AppCompatActivity(),View.OnClickListener {
                        val question =  mQuestionList?.get(mCurrentPosition - 1)
                         if(question!!.correctAnswer != mSelectedAnswer) { //This to check correct answer or not
                             answerView(mSelectedAnswer,R.drawable.wrong_answer_border)
+                        } else {
+                            mCorrectAnswers++
                         }
 
                         answerView(question.correctAnswer,R.drawable.correct_option_border) // this is for correct answer

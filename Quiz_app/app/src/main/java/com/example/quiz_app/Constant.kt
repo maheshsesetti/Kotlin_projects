@@ -1,6 +1,13 @@
 package com.example.quiz_app
 
+import android.hardware.biometrics.BiometricManager.Strings
+
 object Constant {
+
+
+    const val USER_NAME: String = "user_name"
+    const val TOTAL_QUESTIONS : String = "total_questions"
+    const val CORRECT_ANSWERS: String = "correct_answers"
 
     fun getQuestions() : ArrayList<Question> {
        val questionsList =  ArrayList<Question>()
